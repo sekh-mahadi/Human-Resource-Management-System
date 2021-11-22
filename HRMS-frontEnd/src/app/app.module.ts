@@ -1,25 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {HttpClientModule} from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EmployeeListComponent } from './components/employee-list/employee-list.component';
-import { RouterModule, Routes } from '@angular/router';
+import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
+import { FormsModule } from '@angular/forms';
 
-const routes: Routes =
-  [
-    { path :'employees', component:EmployeeListComponent}
-  ];
 @NgModule({
-  declarations: [AppComponent, EmployeeListComponent],
+  declarations: [AppComponent, EmployeeListComponent, AddEmployeeComponent],
   imports: [
-    RouterModule.forRoot(routes),
-
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

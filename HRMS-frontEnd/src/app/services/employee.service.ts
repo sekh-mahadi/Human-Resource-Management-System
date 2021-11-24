@@ -8,15 +8,24 @@ import { Employee } from '../common/employee';
 })
 export class EmployeeService {
   private baseUrl = 'http://localhost:8080/api/v1/employees';
-  private addUrl = 'http://localhost:8080/api/v1/employee';
+  private addUpadteUrl = 'http://localhost:8080/api/v1/employee';
 
   constructor(private httpClient: HttpClient) {}
 
   getEmployeeList(): Observable<Employee[]> {
     return this.httpClient.get<Employee[]>(`${this.baseUrl}`);
   }
-  addEmployee ( emloyee: Employee ): Observable<Object>
+
+  addEmployee(emloyee: Employee): Observable<Object> {
+    return this.httpClient.post(`${this.addUpadteUrl}`, emloyee);
+  }
+
+  getEmployeeById(id: number): Observable<Employee> {
+    return this.httpClient.get<Employee>(`${this.addUpadteUrl}/${id}`);
+  }
+
+  updateEmployee ( id: number, value: any ):Observable<any>
   {
-    return this.httpClient.post( `${ this.addUrl }`, emloyee );
+    return this.httpClient.put(`${this.addUpadteUrl}/${id}`, value);
   }
 }

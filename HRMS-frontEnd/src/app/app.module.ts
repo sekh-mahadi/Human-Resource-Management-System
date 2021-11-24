@@ -7,9 +7,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EmployeeListComponent } from './components/employee-list/employee-list.component';
 import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
 import { FormsModule } from '@angular/forms';
+import { UpdateEmployeeComponent } from './components/update-employee/update-employee.component';
 
 @NgModule({
-  declarations: [AppComponent, EmployeeListComponent, AddEmployeeComponent],
+  declarations: [AppComponent, EmployeeListComponent, AddEmployeeComponent, UpdateEmployeeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -7,25 +7,28 @@ import { Employee } from '../common/employee';
   providedIn: 'root',
 })
 export class EmployeeService {
-  private baseUrl = 'http://localhost:8080/api/v1/employees';
-  private addUpadteUrl = 'http://localhost:8080/api/v1/employee';
+  private allEmployeeUrl = 'http://localhost:8080/api/v1/employees';
+  private baseUrl = 'http://localhost:8080/api/v1/employee';
 
   constructor(private httpClient: HttpClient) {}
 
   getEmployeeList(): Observable<Employee[]> {
-    return this.httpClient.get<Employee[]>(`${this.baseUrl}`);
+    return this.httpClient.get<Employee[]>(`${this.allEmployeeUrl}`);
   }
-
+  //create Employee REST API call
   addEmployee(emloyee: Employee): Observable<Object> {
-    return this.httpClient.post(`${this.addUpadteUrl}`, emloyee);
+    return this.httpClient.post(`${this.baseUrl}`, emloyee);
   }
-
+  //get employee REST API call
   getEmployeeById(id: number): Observable<Employee> {
-    return this.httpClient.get<Employee>(`${this.addUpadteUrl}/${id}`);
+    return this.httpClient.get<Employee>(`${this.baseUrl}/${id}`);
   }
-
-  updateEmployee ( id: number, value: any ):Observable<any>
-  {
-    return this.httpClient.put(`${this.addUpadteUrl}/${id}`, value);
+  //update employee REST API call
+  updateEmployee(id: number, value: any): Observable<any> {
+    return this.httpClient.put(`${this.baseUrl}/${id}`, value);
+  }
+  //delete employee REST API call
+  deleteEmployee(id: number): Observable<Object> {
+    return this.httpClient.delete(`${this.baseUrl}/${id}`);
   }
 }

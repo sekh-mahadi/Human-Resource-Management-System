@@ -8,9 +8,10 @@ import { EmployeeListComponent } from './components/employee-list/employee-list.
 import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
 import { FormsModule } from '@angular/forms';
 import { UpdateEmployeeComponent } from './components/update-employee/update-employee.component';
+import { EmployeeDetailsComponent } from './components/employee-details/employee-details.component';
 
 @NgModule({
-  declarations: [AppComponent, EmployeeListComponent, AddEmployeeComponent, UpdateEmployeeComponent],
+  declarations: [AppComponent, EmployeeListComponent, AddEmployeeComponent, UpdateEmployeeComponent, EmployeeDetailsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
